@@ -27,16 +27,16 @@ class GradientDescent:
 if __name__ == "__main__":
     np.random.seed(42)
     # create simple data
-    X = np.random.randn(100, 2)
+    X = np.random.randn(200, 3)
     true_w, true_b = np.array([2, -3]), 4
     y = X @ true_w + true_b + 0.1*np.random.randn(100)
 
-    w, b = np.zeros(2), 0.0
+    w, b = np.zeros(3), 0.0
     loss_fn = MSELoss()
-    opt = GradientDescent(lr=0.1)
+    opt = GradientDescent(lr=0.05)
 
     # training loop
-    for epoch in range(500):
+    for epoch in range(1000):
         y_pred = X @ w + b
         gw, gb = loss_fn.backward(y_pred, y, X)
         w, b = opt.step(w, b, gw, gb)
