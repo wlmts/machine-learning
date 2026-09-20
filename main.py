@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     w, b = np.zeros(2), 0.0
     loss_fn = MSELoss()
-    opt = GradientDescent(lr=0.1)
+    opt = GradientDescent(lr=0.05)
 
     # training loop
     for epoch in range(1000):
